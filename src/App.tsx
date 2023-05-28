@@ -1,12 +1,12 @@
-import { useState } from "react";
 import "./App.css";
+import { ReactNode } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>hello world</div>
+      <div className="row">
+        
+      </div>
     </>
   );
 }
