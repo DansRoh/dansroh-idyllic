@@ -1,13 +1,10 @@
 import "./App.css";
-import { ReactNode } from "react";
-
+import Layout from './Layout/Layout'
 function App() {
   return (
-    <>
-      <div className="row">
-        
-      </div>
-    </>
+    <div>
+      <Layout></Layout>
+    </div>
   );
 }
 
