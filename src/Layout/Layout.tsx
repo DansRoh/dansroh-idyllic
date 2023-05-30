@@ -1,11 +1,12 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-28 13:13:31
- * @LastEditTime: 2023-05-30 11:00:01
+ * @LastEditTime: 2023-05-30 13:14:34
  * @LastEditors: luoda
  * @Description:
  */
-import { Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { Layout as AntdLayout, Menu } from "antd";
 import type { MenuProps } from "antd";
 import styles from "./layout.module.styl";
@@ -13,37 +14,28 @@ import styles from "./layout.module.styl";
 const { Header, Content } = AntdLayout;
 const navMenuItems: MenuProps["items"] = [
   {
-    key: 1,
+    key: "/books",
     label: "图书馆",
   },
   {
-    key: 2,
+    key: "/materail",
     label: "素材库",
   },
   {
-    key: 3,
+    key: "/music",
     label: "音乐汇",
   },
 ];
 
 export default function Layout() {
   const navigate = useNavigate();
-
-  const navMenuOnSelect: (key: any) => void = ({ key }) => {
-    switch (key) {
-      case "1":
-        navigate("home");
-        break;
-      case "2":
-        navigate("materail");
-        break;
-      case "3":
-        navigate("music");
-        break;
-      default:
-        break;
-    }
-  };
+  const location = useLocation();
+  const [navSelectedKeys, setnavSelectedKeys] = useState<string[]>([
+    location.pathname,
+  ]);
+  useEffect(() => {
+    setnavSelectedKeys([location.pathname]);
+  }, [location.pathname]);
 
   return (
     <AntdLayout className={styles.layoutPage}>
@@ -52,9 +44,12 @@ export default function Layout() {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["/books"]}
+          selectedKeys={navSelectedKeys}
           items={navMenuItems}
-          onSelect={navMenuOnSelect}
+          onSelect={({ key }) => {
+            navigate(key);
+          }}
         />
       </Header>
       <AntdLayout>
