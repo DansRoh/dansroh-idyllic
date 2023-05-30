@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-28 13:13:31
- * @LastEditTime: 2023-05-30 13:34:53
+ * @LastEditTime: 2023-05-30 18:20:51
  * @LastEditors: luoda
  * @Description:
  */
@@ -10,6 +10,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { Layout as AntdLayout, Menu, Avatar } from "antd";
 import type { MenuProps } from "antd";
 import styles from "./layout.module.styl";
+import avatarImg from "../assets/images/avatar.png";
 
 const { Header, Content } = AntdLayout;
 const navMenuItems: MenuProps["items"] = [
@@ -52,7 +53,7 @@ export default function Layout() {
         <Avatar
           onClick={onClickAvatar}
           size="large"
-          src="/src/assets/images/avatar.png"
+          src={avatarImg}
           style={{ cursor: "pointer" }}
         />
         <Menu
