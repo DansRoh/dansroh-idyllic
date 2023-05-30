@@ -1,11 +1,10 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-26 17:29:53
- * @LastEditTime: 2023-05-29 14:12:37
+ * @LastEditTime: 2023-05-29 14:15:03
  * @LastEditors: luoda
  * @Description:
  */
-import React from "react";
 import styles from "./Login.module.styl";
 import { useNavigate } from "react-router-dom";
 import { Layout, Form, Input, Checkbox, Button } from "antd";
