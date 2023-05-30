@@ -1,13 +1,13 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-28 13:13:31
- * @LastEditTime: 2023-05-30 13:14:34
+ * @LastEditTime: 2023-05-30 13:34:53
  * @LastEditors: luoda
  * @Description:
  */
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import { Layout as AntdLayout, Menu } from "antd";
+import { Layout as AntdLayout, Menu, Avatar } from "antd";
 import type { MenuProps } from "antd";
 import styles from "./layout.module.styl";
 
@@ -37,10 +37,24 @@ export default function Layout() {
     setnavSelectedKeys([location.pathname]);
   }, [location.pathname]);
 
+  const onClickAvatar: () => void = () => {
+    navigate("/home");
+  };
   return (
     <AntdLayout className={styles.layoutPage}>
-      <Header style={{ display: "flex", alignItems: "center" }}>
-        <div className="demo-logo" />
+      <Header
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Avatar
+          onClick={onClickAvatar}
+          size="large"
+          src="/src/assets/images/avatar.png"
+          style={{ cursor: "pointer" }}
+        />
         <Menu
           theme="dark"
           mode="horizontal"
