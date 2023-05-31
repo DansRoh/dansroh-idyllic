@@ -1,21 +1,24 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-26 17:34:59
- * @LastEditTime: 2023-05-31 11:48:28
+ * @LastEditTime: 2023-05-31 17:08:26
  * @LastEditors: luoda
  * @Description:
  */
 import App from "../App";
 import Login from "../pages/Login/Login";
-import About from "../pages/About/About";
 import Home from "../pages/Home/Home";
-import Books from '../pages/Books/Books'
+import Books from "../pages/Books/Books";
 import Materail from "../pages/Materail/Materail";
 import Music from "../pages/Music/Music";
 import Error from "../pages/Error/Error";
-import { createHashRouter, redirect } from "react-router-dom";
+import { createHashRouter, redirect, Navigate } from "react-router-dom";
 
 export const routes = createHashRouter([
+  {
+    path: "/",
+    element: <Navigate to="/home" />,
+  },
   {
     path: "/",
     loader: () => {
@@ -28,16 +31,12 @@ export const routes = createHashRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path: "about",
-        element: <About></About>,
-      },
-      {
         path: "home",
         element: <Home></Home>,
       },
       {
         path: "books",
-        element: <Books/>
+        element: <Books />,
       },
       {
         path: "materail",
