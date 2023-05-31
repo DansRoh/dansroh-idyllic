@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-28 13:13:31
- * @LastEditTime: 2023-05-30 18:20:51
+ * @LastEditTime: 2023-05-31 11:05:24
  * @LastEditors: luoda
  * @Description:
  */
@@ -10,7 +10,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { Layout as AntdLayout, Menu, Avatar } from "antd";
 import type { MenuProps } from "antd";
 import styles from "./layout.module.styl";
-import avatarImg from "../assets/images/avatar.png";
+import avatarImg from "@/assets/images/avatar.png";
 
 const { Header, Content } = AntdLayout;
 const navMenuItems: MenuProps["items"] = [
@@ -38,9 +38,6 @@ export default function Layout() {
     setnavSelectedKeys([location.pathname]);
   }, [location.pathname]);
 
-  const onClickAvatar: () => void = () => {
-    navigate("/home");
-  };
   return (
     <AntdLayout className={styles.layoutPage}>
       <Header
@@ -51,7 +48,9 @@ export default function Layout() {
         }}
       >
         <Avatar
-          onClick={onClickAvatar}
+          onClick={() => {
+            navigate("/home");
+          }}
           size="large"
           src={avatarImg}
           style={{ cursor: "pointer" }}

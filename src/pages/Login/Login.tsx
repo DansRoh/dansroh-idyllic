@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-26 17:29:53
- * @LastEditTime: 2023-05-29 14:15:03
+ * @LastEditTime: 2023-05-31 14:34:58
  * @LastEditors: luoda
  * @Description:
  */
@@ -9,6 +9,7 @@ import styles from "./Login.module.styl";
 import { useNavigate } from "react-router-dom";
 import { Layout, Form, Input, Checkbox, Button } from "antd";
 import { Header, Footer, Content } from "antd/es/layout/layout";
+import { api0001 } from "@/api/user/index";
 
 interface IOnFinishProp {
   password: string;
@@ -23,10 +24,16 @@ interface IOnFinishFailedProp {
 
 export default function Login() {
   const navigate = useNavigate();
-  const onFinish = (values: IOnFinishProp) => {
-    console.log("Success:", values);
-    localStorage.setItem("dansrohLoginStatus", "1");
-    navigate("/home");
+  const onFinish = async (values: IOnFinishProp) => {
+    const params = {
+      username: values.username,
+      passward: values.password,
+    };
+    const { code } = await api0001(params);
+    if (code === 0) {
+      localStorage.setItem("dansrohLoginStatus", "1");
+      navigate("/home");
+    }
   };
 
   const onFinishFailed = (errorInfo: IOnFinishFailedProp) => {
