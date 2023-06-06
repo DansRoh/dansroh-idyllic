@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-26 17:34:59
- * @LastEditTime: 2023-05-31 17:08:26
+ * @LastEditTime: 2023-06-05 17:17:21
  * @LastEditors: luoda
  * @Description:
  */
@@ -12,6 +12,7 @@ import Books from "../pages/Books/Books";
 import Materail from "../pages/Materail/Materail";
 import Music from "../pages/Music/Music";
 import Error from "../pages/Error/Error";
+import Guide from '../pages/Guide/Guide'
 import { createHashRouter, redirect, Navigate } from "react-router-dom";
 
 export const routes = createHashRouter([
@@ -47,6 +48,10 @@ export const routes = createHashRouter([
         element: <Music />,
       },
     ],
+  },
+  {
+    path: "guide",
+    element: <Guide></Guide>
   },
   {
     path: "login",

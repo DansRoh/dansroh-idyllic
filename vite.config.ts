@@ -10,12 +10,12 @@ export default defineConfig({
       "@": "/src",
     },
   },
-  // server: {
-  //   proxy: {
-  //     "/": {
-  //       target: "http://104.168.134.201:8080",
-  //       changeOrigin: true, // 开启跨域
-  //     },
-  //   },
-  // },
+  server: {
+    proxy: {
+      "user/": {
+        target: "http://127.0.0.1:3000",
+        changeOrigin: true, // 开启跨域
+      },
+    },
+  },
 });

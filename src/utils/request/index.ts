@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-31 10:44:07
- * @LastEditTime: 2023-05-31 14:31:14
+ * @LastEditTime: 2023-06-02 09:35:39
  * @LastEditors: luoda
  * @Description:
  */
@@ -9,13 +9,14 @@ import axios from "axios";
 interface ServerData {
   code: number;
   msg: string;
-  data?: object;
+  data?: any;
 }
 
 const service = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "http://127.0.0.1:3001",
   timeout: 5000,
 });
+
 
 // 响应拦截
 service.interceptors.response.use(res => {
