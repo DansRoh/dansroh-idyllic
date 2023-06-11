@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-31 10:44:07
- * @LastEditTime: 2023-06-11 17:39:02
+ * @LastEditTime: 2023-06-11 21:55:39
  * @LastEditors: luoda
  * @Description:
  */
@@ -13,10 +13,10 @@ interface ServerData {
 }
 
 const service = axios.create({
-  baseURL: "http://127.0.0.1:3000",
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
   timeout: 5000,
 });
-
+console.log('import.meta.env.BASE_URL :>> ', import.meta.env.VITE_APP_BASE_URL);
 
 // 响应拦截
 service.interceptors.response.use(res => {
