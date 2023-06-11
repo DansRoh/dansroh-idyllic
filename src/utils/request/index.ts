@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-31 10:44:07
- * @LastEditTime: 2023-06-02 09:35:39
+ * @LastEditTime: 2023-06-11 17:39:02
  * @LastEditors: luoda
  * @Description:
  */
@@ -13,7 +13,7 @@ interface ServerData {
 }
 
 const service = axios.create({
-  baseURL: "http://127.0.0.1:3001",
+  baseURL: "http://127.0.0.1:3000",
   timeout: 5000,
 });
 
