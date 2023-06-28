@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-26 17:29:53
- * @LastEditTime: 2023-06-11 20:11:27
+ * @LastEditTime: 2023-06-11 23:42:06
  * @LastEditors: luoda
  * @Description:
  */
@@ -43,7 +43,7 @@ export default function Login() {
       const { code, data } = await api0001(params);
       if (code === 0) {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("dansrohLoginStatus", "1");
+        localStorage.setItem("isLogin", "1");
         navigate("/guide");
       } else {
         console.log("error :>> ", data);

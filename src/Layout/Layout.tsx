@@ -1,12 +1,11 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-28 13:13:31
- * @LastEditTime: 2023-06-11 20:35:46
+ * @LastEditTime: 2023-06-15 09:29:26
  * @LastEditors: luoda
  * @Description:
  */
-import styles from "./layout.module.styl";
-
+import styles from "./styles/index.module.scss";
 export default function Layout() {
   return (
     <div className={styles.layoutPage + " container-fluid"}>

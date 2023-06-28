@@ -1,11 +1,13 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-31 10:44:07
- * @LastEditTime: 2023-06-11 21:55:39
+ * @LastEditTime: 2023-06-12 17:32:53
  * @LastEditors: luoda
  * @Description:
  */
 import axios from "axios";
+import { message } from "antd";
+
 interface ServerData {
   code: number;
   msg: string;
@@ -16,15 +18,18 @@ const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_URL,
   timeout: 5000,
 });
-console.log('import.meta.env.BASE_URL :>> ', import.meta.env.VITE_APP_BASE_URL);
 
 // 响应拦截
-service.interceptors.response.use(res => {
+service.interceptors.response.use((res) => {
   return res.data;
 });
 
 // 封装请求api
-const callapi:(method:string, url: string, data: object)=>Promise<ServerData> = (method, url, data) => {
+const callapi: (
+  method: string,
+  url: string,
+  data: object
+) => Promise<ServerData> = (method, url, data) => {
   return service({
     method,
     url,
