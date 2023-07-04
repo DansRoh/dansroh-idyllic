@@ -1,7 +1,7 @@
 /*
  * @Author: luoda
  * @Date: 2023-05-26 17:29:53
- * @LastEditTime: 2023-06-05 17:17:24
+ * @LastEditTime: 2023-07-04 15:50:34
  * @LastEditors: luoda
  * @Description:
  */
@@ -18,7 +18,7 @@ import bgImg from "@/assets/images/imgBg01.jpg";
 interface IOnFinishProp {
   password: string;
   remember: boolean;
-  username: string;
+  nickname: string;
 }
 interface IOnFinishFailedProp {
   errorFields: object[];
@@ -55,7 +55,7 @@ export default function Login() {
   const onFinish = async (values: IOnFinishProp) => {
     setsubmitLoading(true);
     const params = {
-      username: values.username,
+      nickname: values.nickname,
       password: values.password,
     };
     try {
@@ -97,10 +97,10 @@ export default function Login() {
             autoComplete="off"
           >
             <Form.Item
-              label="Username"
-              name="username"
+              label="Nickname"
+              name="nickname"
               rules={[
-                { required: true, message: "Please input your username!" },
+                { required: true, message: "Please input your nickname!" },
               ]}
             >
               <Input
